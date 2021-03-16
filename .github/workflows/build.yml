@@ -20,12 +20,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Build Yasd
-        run: |
-          cd yasd
-          docker-compose build yasd
-          docker run --name yasd build/yasd
-          docker images
-          docker ps -a
-          docker cp yasd:/opt/www/yasd/modules/yasd.so yasd-${PHP_VERSION}-alpine-v${ALPINE_VERSION}.so
-          docker rm yasd
+        run: cd yasd && ./build.sh
+
 
