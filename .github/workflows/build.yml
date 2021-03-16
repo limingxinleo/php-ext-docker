@@ -6,6 +6,8 @@ jobs:
   release:
     name: Release
     runs-on: ubuntu-latest
+    outputs:
+      release_upload_url: ${{ steps.create_release.outputs.upload_url }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -15,8 +17,6 @@ jobs:
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        outputs:
-          release_upload_url: ${{ steps.create_release.outputs.upload_url }}
         with:
           tag_name: ${{ github.ref }}
           release_name: Release ${{ github.ref }}
