@@ -51,8 +51,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ needs.release.outputs.release_upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps
-          asset_path: yasd/yasd-${PHP_VERSION}-alpine-v${ALPINE_VERSION}.so
-          asset_name: yasd-${PHP_VERSION}-alpine-v${ALPINE_VERSION}.so
+          asset_path: yasd/yasd-${{ matrix.php-version }}-alpine-v${{ matrix.alpine-version }}.so
+          asset_name: yasd-${{ matrix.php-version }}-alpine-v${{ matrix.alpine-version }}.so
           asset_content_type: application/octet-stream
 
 
