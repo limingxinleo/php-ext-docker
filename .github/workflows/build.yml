@@ -19,7 +19,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Build Yasd
-        if: ${{ matrix.php-version != '7.3' && matrix.alpine-version != '3.12'}}
         run: |
           cd yasd
           docker-compose build yasd
