@@ -10,7 +10,7 @@ jobs:
       matrix:
         php-version: [ '7.3', '7.4' ]
         alpine-version: [ '3.9', '3.10', '3.11', '3.12' ]
-      max-parallel: 4
+      max-parallel: 8
       fail-fast: false
     env:
       PHP_VERSION: ${{ matrix.php-version }}
@@ -24,6 +24,8 @@ jobs:
           cd yasd
           docker-compose build yasd
           docker run --name yasd build/yasd
+          docker images
+          docker ps -a
           docker cp yasd:/opt/www/modules/yasd.so yasd-${PHP_VERSION}-alpine-v${ALPINE_VERSION}.so
           docker rm yasd
 
