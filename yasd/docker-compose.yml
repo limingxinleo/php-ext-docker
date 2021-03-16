@@ -1,0 +1,14 @@
+# syntax version.
+version: "3.7"
+
+# services list.
+services:
+  # base image
+  yasd:
+    image: "build/yasd"
+    build:
+      context: "./"
+      args:
+        PHP_VERSION: ${PHP_VERSION}
+        ALPINE_VERSION: ${ALPINE_VERSION}
+        YASD_VERSION: ${YASD_VERSION}

@@ -1,0 +1,29 @@
+on: [ 'push', 'pull_request' ]
+
+name: Build PHP Extensions
+
+jobs:
+  yasd:
+    name: Build YASD
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        php-version: [ '7.3', '7.4' ]
+        alpine-version: [ '3.9', '3.10', '3.11', '3.12' ]
+      max-parallel: 4
+    env:
+      PHP_VERSION: ${{ matrix.php-version }}
+      ALPINE_VERSION: ${{ matrix.alpine-version }}
+      YASD_VERSION: "v0.3.7"
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Build Yasd
+        if: ${{ matrix.php-version != '7.3' && matrix.alpine-version != '3.12'}}
+        run: |
+          cd yasd
+          docker-compose build yasd
+          docker run --name yasd build/yasd
+          docker cp yasd:/opt/www/modules/yasd.so yasd-${PHP_VERSION}-alpine-v${ALPINE_VERSION}.so
+          docker rm yasd
+
