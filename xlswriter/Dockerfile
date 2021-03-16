@@ -12,21 +12,14 @@ FROM hyperf/hyperf:${PHP_VERSION}-alpine-v${ALPINE_VERSION}-dev
 
 LABEL maintainer="Hyperf Developers <group@hyperf.io>" version="1.0" license="MIT"
 
-ARG YASD_VERSION
+ARG XLS_WRITER_VERSION
 
 RUN set -ex \
-    && apk update \
-    && apk add boost-dev
+    && apk update
 
-WORKDIR /opt/www
+WORKDIR /opt/www/modules
 
-RUN wget https://github.com/swoole/yasd/archive/${YASD_VERSION}.tar.gz -O build.tar.gz \
-    && mkdir -p build \
-    && tar -xf build.tar.gz -C build --strip-components=1 \
-    && rm build.tar.gz \
-    && cd build \
-    && phpize \
-    && ./configure \
-    && make -j$(nproc)
+RUN pecl install https://pecl.php.net/get/xlswriter-${XLS_WRITER_VERSION}.tgz \
+  && cp /usr/lib/php7/modules/xlswriter.so /opt/www/modules
 
 VOLUME /opt/www/modules

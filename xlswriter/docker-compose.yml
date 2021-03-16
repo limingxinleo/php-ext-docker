@@ -1,0 +1,14 @@
+# syntax version.
+version: "3.7"
+
+# services list.
+services:
+  # base image
+  xlswriter:
+    image: "build/xlswriter"
+    build:
+      context: "./"
+      args:
+        PHP_VERSION: ${PHP_VERSION}
+        ALPINE_VERSION: ${ALPINE_VERSION}
+        XLS_WRITER_VERSION: ${XLS_WRITER_VERSION}
