@@ -39,5 +39,15 @@ jobs:
         uses: actions/checkout@v2
       - name: Build Yasd
         run: cd yasd && ./build.sh
+      - name: Release and Upload Assets
+        if: ${{ startsWith(github.ref, 'refs/tags/') }}
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ jobs.release.steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps
+          asset_path: yasd/yasd-${PHP_VERSION}-alpine-v${ALPINE_VERSION}.so
+          asset_name: yasd-${PHP_VERSION}-alpine-v${ALPINE_VERSION}.so
+          asset_content_type: application/octet-stream
 
 
