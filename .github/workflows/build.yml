@@ -31,8 +31,10 @@ jobs:
       matrix:
         php-version: [ '7.3', '7.4' ]
         alpine-version: [ '3.9', '3.10', '3.11', '3.12' ]
+        exclude:
+          - php-version: '7.3'
+            alpine-version: '3.12'
       max-parallel: 8
-      fail-fast: false
     env:
       PHP_VERSION: ${{ matrix.php-version }}
       ALPINE_VERSION: ${{ matrix.alpine-version }}
