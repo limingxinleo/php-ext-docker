@@ -2,6 +2,8 @@
 
 ## Yasd
 
+[swoole/yasd](https://github.com/swoole/yasd)
+
 以下的 `yasd-${yasd-version}/yasd-${php-version}-alpine-${alpine-version}.so` 按实际情况填写
 
 ```shell
@@ -11,6 +13,8 @@ echo "extension=yasd.so" >> /etc/php7/conf.d/50_yasd.ini
 ```
 
 ## Xlswriter
+
+[viest/php-ext-xlswriter](https://github.com/viest/php-ext-xlswriter)
 
 以下的 `xlswriter-${xlswriter-version}/xlswriter-${php-version}-alpine-${alpine-version}.so` 按实际情况填写
 
