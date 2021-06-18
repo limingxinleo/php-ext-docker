@@ -41,7 +41,7 @@ jobs:
     env:
       PHP_VERSION: ${{ matrix.php-version }}
       ALPINE_VERSION: ${{ matrix.alpine-version }}
-      YASD_VERSION: "v0.3.7"
+      YASD_VERSION: "v0.3.8"
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
