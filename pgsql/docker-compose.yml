@@ -1,0 +1,14 @@
+# syntax version.
+version: "3.7"
+
+# services list.
+services:
+  # base image
+  pgsql:
+    image: "build/pgsql"
+    build:
+      context: "./"
+      args:
+        PHP_VERSION: ${PHP_VERSION}
+        ALPINE_VERSION: ${ALPINE_VERSION}
+        SWOOLE_VERSION: ${SWOOLE_VERSION}

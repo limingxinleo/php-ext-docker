@@ -22,3 +22,12 @@ echo "extension=yasd.so" >> /etc/php7/conf.d/50_yasd.ini
 wget https://github.com/limingxinleo/php-ext-docker/releases/download/xlswriter-v1.3.7/xlswriter-7.3-alpine-v3.11.so -O /usr/lib/php7/modules/xlswriter.so
 echo "extension=xlswriter.so" >> /etc/php7/conf.d/50_xlswriter.ini
 ```
+
+## PgSQL
+
+[swoole/ext-postgresql](https://github.com/swoole/ext-postgresql)
+
+```shell
+wget https://github.com/limingxinleo/php-ext-docker/releases/download/pgsql-v4.6.1/swoole_postgresql-8.0-alpine-v3.14.so -O /usr/lib/php8/modules/swoole_postgresql.so
+echo "extension=swoole_postgresql.so" >> /etc/php8/conf.d/51_pgsql.ini
+```
