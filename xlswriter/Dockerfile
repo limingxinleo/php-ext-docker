@@ -21,6 +21,6 @@ RUN set -ex \
 WORKDIR /opt/www/modules
 
 RUN pecl install https://pecl.php.net/get/xlswriter-${XLS_WRITER_VERSION}.tgz \
-  && cp /usr/lib/php${PHP_VERSION%\.*}/modules/xlswriter.so /opt/www/modules
+  && cp /usr/lib/php*/modules/xlswriter.so /opt/www/modules
 
 VOLUME /opt/www/modules
