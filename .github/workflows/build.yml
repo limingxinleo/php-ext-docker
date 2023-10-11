@@ -59,8 +59,27 @@ jobs:
     needs: release
     strategy:
       matrix:
-        php-version: [ '8.0', '8.1' ]
-        alpine-version: [ '3.15', '3.16', '3.17', '3.18' ]
+        php-version: [ '8.0', '8.1', '8.2' ]
+        alpine-version: [ '3.14', '3.15', '3.16', '3.17', '3.18', 'edge' ]
+        exclude:
+          - php-version: '8.2'
+            alpine-version: '3.14'
+          - php-version: '8.2'
+            alpine-version: '3.15'
+          - php-version: '8.2'
+            alpine-version: '3.16'
+          - php-version: '8.2'
+            alpine-version: '3.17'
+          - php-version: '8.1'
+            alpine-version: '3.14'
+          - php-version: '8.1'
+            alpine-version: '3.15'
+          - php-version: '8.0'
+            alpine-version: '3.17'
+          - php-version: '8.0'
+            alpine-version: '3.18'
+          - php-version: '8.0'
+            alpine-version: 'edge'
       max-parallel: 8
       fail-fast: false
     env:
