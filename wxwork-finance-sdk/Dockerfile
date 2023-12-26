@@ -25,6 +25,7 @@ RUN apk update \
     && make -j$(nproc) \
     && make install \
     # 打包文件
+    && mkdir /opt/www/modules/ \
     && mv /opt/www/build/modules/wxwork_finance_sdk.so /opt/www/modules/ \
     && mv /opt/www/build/wework_c_sdk/WeWorkFinanceSdk_C.h /opt/www/modules/ \
     && mv /opt/www/build/wework_c_sdk/libWeWorkFinanceSdk_C.so /opt/www/modules/ \
