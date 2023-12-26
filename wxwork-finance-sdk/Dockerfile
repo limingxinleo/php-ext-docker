@@ -28,4 +28,4 @@ RUN apk update \
     && mv /opt/www/build/modules/wxwork_finance_sdk.so /opt/www/modules/ \
     && mv /opt/www/build/wework_c_sdk/WeWorkFinanceSdk_C.h /opt/www/modules/ \
     && mv /opt/www/build/wework_c_sdk/libWeWorkFinanceSdk_C.so /opt/www/modules/ \
-    && zip -q -r /opt/www/wxwork_finance_sdk.zip /opt/www/modules/
+    && zip -q -r /opt/www/wxwork-finance-sdk.zip /opt/www/modules/
