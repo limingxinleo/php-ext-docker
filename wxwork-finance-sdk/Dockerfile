@@ -4,7 +4,6 @@
 # @document https://doc.hyperf.io
 # @contact  group@hyperf.io
 # @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
-
 ARG PHP_VERSION
 ARG ALPINE_VERSION
 
@@ -17,8 +16,9 @@ WORKDIR /opt/www
 RUN git clone https://github.com/pangdahua/php7-wxwork-finance-sdk.git \
     && mv php7-wxwork-finance-sdk build \
     && cd build \
-    && pwd \
+    && wget https://srb-material.missxiaolin.com/2023/12/26/d4946b07-e4fb-424f-baa0-1238693bf685.zip -O sdk.zip \
+    && unzip sdk.zip \
     && phpize \
-    && ./configure --with-wxwork-finance-sdk=/opt/www/build \
+    && ./configure --with-wxwork-finance-sdk=/opt/www/build/wework_c_sdk \
     && make -j$(nproc) \
     && make install
