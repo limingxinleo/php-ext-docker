@@ -1,0 +1,13 @@
+# syntax version.
+version: "3.7"
+
+# services list.
+services:
+  # base image
+  wxwork-finance-sdk:
+    image: "build/wxwork-finance-sdk"
+    build:
+      context: "./"
+      args:
+        PHP_VERSION: ${PHP_VERSION}
+        ALPINE_VERSION: ${ALPINE_VERSION}
