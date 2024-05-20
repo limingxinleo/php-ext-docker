@@ -1,0 +1,13 @@
+# syntax version.
+version: "3.7"
+
+# services list.
+services:
+  # base image
+  opencc:
+    image: "build/opencc"
+    build:
+      context: "./"
+      args:
+        PHP_VERSION: ${PHP_VERSION}
+        ALPINE_VERSION: ${ALPINE_VERSION}
