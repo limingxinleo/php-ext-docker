@@ -85,7 +85,7 @@ jobs:
     env:
       PHP_VERSION: ${{ matrix.php-version }}
       ALPINE_VERSION: ${{ matrix.alpine-version }}
-      XLS_WRITER_VERSION: "1.5.5"
+      XLS_WRITER_VERSION: "1.5.7"
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
